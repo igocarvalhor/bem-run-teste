@@ -58,9 +58,9 @@ function drawObject(o){
 function drawHero(t){
   // Keep the full sprite inside a safe viewport rectangle, independent of device size.
   const x=W/2+(laneEase-1)*(W*.285);
-  const h=Math.min(H*.142,W*.27,112),w=h*.73;
-  const ground=Math.min(H*.88,H-98);
-  const rise=Math.sin(jumping*Math.PI)*Math.min(H*.13,105);
+  const h=Math.min(H*.128,W*.245,98),w=h*.73;
+  const ground=Math.min(H*.89,H-92);
+  const rise=Math.sin(jumping*Math.PI)*Math.min(H*.115,88);
   const bob=jumping>0?0:Math.sin(t*20)*1.8;
   const bottom=ground-rise+bob;
   oval(x,ground+5,Math.max(17,w*.3),6,'#5c5c5249');
@@ -72,7 +72,7 @@ function drawHero(t){
     const drawW=Math.min(w,h*ratio);
     const drawH=drawW/ratio;
     // No sprite clipping near the screen edges or the bottom controls.
-    const drawY=Math.max(138,Math.min(bottom-drawH+12,H-drawH-76));
+    const drawY=Math.max(156,Math.min(bottom-drawH+18,H-drawH-64));
     ctx.drawImage(im,x-drawW/2,drawY,drawW,drawH);
     ctx.restore();
   }
